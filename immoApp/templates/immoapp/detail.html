@@ -5,14 +5,33 @@
 
 
    <div class="col-md-6">
-      <div class="row">
-        <h1 class="col-md-8">{{ Estate.Estate_name }}</h1>
+    <div class="row">
+      <h1 class="col-md-8">{{ Estate.name }}</h1>
 
-      </div>
-
-      <div>{{ film.film_beschr }}</div>
-      <a href="{%  url 'immoapp:edit_Estate' Estate.id %}">Film bearbeiten</a>
-      <a href="{%  url 'immoapp:delete_Estate' Estate.id %}">Film löschen</a>
+    </div>
+    <h4>
+      House-Type: {{Estate.house_type}}
+    </h4>
+    <h6>
+      <br>
+      Living space: {{ Estate.living_space }}m<sup>2</sup>
+      <br><br>
+      Rooms: {{ Estate.number_rooms }}
+      <br><br>
+      Year built: {{ Estate.year_built }}
+      <br><br>
+      Adress: {{ Estate.address}}
+      <br><br>
+      The Estate has
+      {% if Estate.has_balcony %}
+          <a>a</a>
+        {% else %}
+          <a>no</a>
+      {% endif %}
+      Balcony.
+    </h6>
+    <a href="{%  url 'immoapp:edit_Estate' Estate.id %}">Film bearbeiten</a>
+    <a href="{%  url 'immoapp:delete_Estate' Estate.id %}">Film löschen</a>
     </div>
   </div>
 </div>

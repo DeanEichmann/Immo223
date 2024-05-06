@@ -21,7 +21,7 @@ def details(request, Estate_id):
         'Estate':EstateObj,
     }
 
-    return render(request, 'Estate/detail.html', context)
+    return render(request, 'immoApp/detail.html', context)
 
 def new_Estate(request):
     form = EstateForm(request.POST or None)
