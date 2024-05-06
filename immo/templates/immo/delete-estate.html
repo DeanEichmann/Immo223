@@ -1,0 +1,7 @@
+{% extends 'immo/base.html' %} {% block body %}
+<form method="POST" class="p-5">
+  {% csrf_token s%}
+  <h2>Wollen Sie die Estate {{ estate.estate_name }} wirklich löschen?</h2>
+  <button type="submit">Löschen bestätigen</button>
+</form>
+{% endblock %}
