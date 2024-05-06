@@ -1,10 +1,31 @@
-{% extends 'immoapp/base.html' %} {% block body %} {% for estate in estate_liste %}
+{% extends 'immoapp/base.html' %} {% block body %} {% for estate in estate_list %}
 
 <div class="row">
   <div class="col-md-4">
-    <h3>{{ estate.estate_name }}</h3>
+    <h3>{{ estate.name }}</h3>
+    <h4>
+      {% if estate.house_type == 1 %}
+        Villa
+      {% elif estate.house_type == 2 %}
+        Single House
+      {% elif estate.house_type == 3 %}
+        Farm House
+      {% elif estate.house_type == 4 %}
+        Bifamiliar House
+      {% elif estate.house_type == 5 %}
+        Row House
+      {% elif estate.house_type == 6 %}
+        Multiple Dwelling
+      {% elif estate.house_type == 7 %}
+        Chalet
+      {% elif estate.house_type == 8 %}
+        Terrace House
+      {% else %}
+        Missing House-Type
+      {% endif %}
+    </h4>
 
-    <h6>Bewertung: {{ estate.estate_bewertung }} von 5</h6>
+    <h6>Living space: {{ estate.living_space }}, rooms: {{ estate.number_rooms }}, year built: {{ estate.year_built }}</h6>
   </div>
 
 <div class="col-md-2">

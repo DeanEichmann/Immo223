@@ -1,10 +1,27 @@
 from django.db import models
 
-# Create your models here.
+"""
+living_space - Denotes the living area of the house in square meters.
+number_rooms - Indicates the total number of rooms in the house.
+has_balcony - Binary indicator of whether the object has a balcony (Yes/No).
+house_type - Describes the type of the house, such as "Villa".
+year_built - Represents the year in which the house was constructed.
+"""
 class estate(models.Model):
-
-    def __str__(self):
-        return self.estate_name
-
-    estate_name = models.CharField(max_length=200)
-    estate_description = models.CharField(max_length=1000)
+    class HouseType(models.TextChoices):
+        VILLA = '1', 'VILLA'
+        SINGLE_HOUSE = '2', 'SINGLE_HOUSE'
+        FARM_HOUSE = '3', 'FARM_HOUSE'
+        BIFAMILIAR_HOUSE = '4', 'BIFAMILIAR_HOUSE'
+        ROW_HOUSE= '5', 'ROW_HOUSE'
+        MULTIPLE_DWELLING = '6', 'MULTIPLE_DWELLING'
+        CHALET = '7', 'CHALET'
+        TERRACE_HOUSE = '8', 'TERRACE_HOUSE'
+    
+    name = models.CharField(max_length=80)
+    adress = models.CharField(max_length=30, default='missing')
+    living_space = models.FloatField()
+    number_rooms = models.IntegerField()
+    has_balcony = models.BooleanField()
+    house_type = models.TextField(choices=HouseType)
+    year_built = models.IntegerField()
