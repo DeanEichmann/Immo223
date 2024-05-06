@@ -3,29 +3,11 @@
 <div class="row">
   <div class="col-md-4">
     <h3>{{ estate.name }}</h3>
-    <h4>
-      {% if estate.house_type == 1 %}
-        Villa
-      {% elif estate.house_type == 2 %}
-        Single House
-      {% elif estate.house_type == 3 %}
-        Farm House
-      {% elif estate.house_type == 4 %}
-        Bifamiliar House
-      {% elif estate.house_type == 5 %}
-        Row House
-      {% elif estate.house_type == 6 %}
-        Multiple Dwelling
-      {% elif estate.house_type == 7 %}
-        Chalet
-      {% elif estate.house_type == 8 %}
-        Terrace House
-      {% else %}
-        Missing House-Type
-      {% endif %}
-    </h4>
+    <h5>
+      {{estate.house_type}}
+    </h5>
 
-    <h6>Living space: {{ estate.living_space }}, rooms: {{ estate.number_rooms }}, year built: {{ estate.year_built }}</h6>
+    <h6>Living space: {{ estate.living_space }}<br>Rooms: {{ estate.number_rooms }}<br>Year built: {{ estate.year_built }}</h6>
   </div>
 
 <div class="col-md-2">
