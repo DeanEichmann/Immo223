@@ -9,17 +9,20 @@ year_built - Represents the year in which the house was constructed.
 """
 class Estate(models.Model):
     class HouseType(models.TextChoices):
-        VILLA = '1', 'VILLA'
-        SINGLE_HOUSE = '2', 'SINGLE_HOUSE'
-        FARM_HOUSE = '3', 'FARM_HOUSE'
-        BIFAMILIAR_HOUSE = '4', 'BIFAMILIAR_HOUSE'
-        ROW_HOUSE= '5', 'ROW_HOUSE'
-        MULTIPLE_DWELLING = '6', 'MULTIPLE_DWELLING'
-        CHALET = '7', 'CHALET'
-        TERRACE_HOUSE = '8', 'TERRACE_HOUSE'
+        VILLA = 'VILLA', 'Villa'
+        SINGLE_HOUSE = 'SINGLE_HOUSE', 'Single House'
+        FARM_HOUSE = 'FARM_HOUSE', 'Farm House'
+        BIFAMILIAR_HOUSE = 'BIFAMILIAR_HOUSE', 'Bifamiliar House'
+        ROW_HOUSE= 'ROW_HOUSE', 'Row House'
+        MULTIPLE_DWELLING = 'MULTIPLE_DWELLING', 'Multiple Dwelling'
+        CHALET = 'CHALET', 'Chalet'
+        TERRACE_HOUSE = 'TERRACE_HOUSE', 'Terrace House'
       
+    name = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+
     living_space = models.FloatField()
     number_rooms = models.IntegerField()
     has_balcony = models.BooleanField()
-    house_type = models.TextField(choices=HouseType)
+    house_type = models.CharField(choices=HouseType, max_length=100)
     year_built = models.IntegerField()
