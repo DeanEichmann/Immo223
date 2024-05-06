@@ -1,0 +1,20 @@
+{% extends 'immoapp/base.html' %} {% block body %} {% for estate in estate_list %}
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>{{ estate.name }}</h3>
+    <h5>
+      {{estate.house_type}}
+    </h5>
+
+    <h6>Living space: {{ estate.living_space }}<br>Rooms: {{ estate.number_rooms }}<br>Year built: {{ estate.year_built }}</h6>
+  </div>
+
+<div class="col-md-2">
+    <a href="{% url 'immoapp:detail' estate.id %}" class="btn btn-success"
+      >Details</a
+    >
+  </div>
+</div>
+
+{% endfor %} {% endblock %}

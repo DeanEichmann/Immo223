@@ -1,0 +1,20 @@
+{% extends 'immoapp/base.html' %} {% block body %}
+
+<div class="container">
+  <div class="row">
+
+
+   <div class="col-md-6">
+      <div class="row">
+        <h1 class="col-md-8">{{ estate.estate_name }}</h1>
+
+      </div>
+
+      <div>{{ film.film_beschr }}</div>
+      <a href="{%  url 'immoapp:edit_estate' estate.id %}">Film bearbeiten</a>
+      <a href="{%  url 'immoapp:delete_estate' estate.id %}">Film löschen</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
