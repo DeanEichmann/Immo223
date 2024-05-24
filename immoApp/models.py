@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 """
 living_space - Denotes the living area of the house in square meters.
@@ -26,3 +27,7 @@ class Estate(models.Model):
     has_balcony = models.BooleanField()
     house_type = models.CharField(choices=HouseType, max_length=100)
     year_built = models.IntegerField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
