@@ -1,37 +1,30 @@
-{% extends 'immoapp/base.html' %} {% block body %}
+{% extends 'immoapp/base.html' %}
+{% block body %}
 
 <div class="container">
   <div class="row">
-
-
-   <div class="col-md-6">
-    <div class="row">
-      <h1 class="col-md-8">{{ Estate.name }}</h1>
-
-    </div>
-    <h4>
-      House-Type: {{Estate.house_type}}
-    </h4>
-    <h6>
-      <br>
-      Living space: {{ Estate.living_space }}m<sup>2</sup>
-      <br><br>
-      Rooms: {{ Estate.number_rooms }}
-      <br><br>
-      Year built: {{ Estate.year_built }}
-      <br><br>
-      Adress: {{ Estate.address}}
-      <br><br>
-      The Estate has
-      {% if Estate.has_balcony %}
-          <a>a</a>
+    <div class="col-md-6">
+      <div class="row">
+        <h1 class="col-md-8">{{ estate.name }}</h1>
+      </div>
+      <h4>House-Type: {{ estate.house_type }}</h4>
+      <h6>
+        <br />
+        Living space: {{ estate.living_space }}m<sup>2</sup> <br /><br />
+        Rooms: {{ estate.number_rooms }}
+        <br /><br />
+        Year built: {{ estate.year_built }}
+        <br /><br />
+        Address: {{ estate.address }}
+        <br /><br />
+        The Estate has {% if estate.has_balcony %}
+        <a>a</a>
         {% else %}
-          <a>no</a>
-      {% endif %}
-      Balcony.
-    </h6>
-    <a href="{%  url 'immoapp:edit_Estate' Estate.id %}">Film bearbeiten</a>
-    <a href="{%  url 'immoapp:delete_Estate' Estate.id %}">Film löschen</a>
+        <a>no</a>
+        {% endif %} Balcony.
+      </h6>
+      <a href="{% url 'immoapp:edit_Estate' id=estate.id %}">Edit</a>
+      <a href="{% url 'immoapp:delete_Estate' id=estate.id %}">Delete</a>
     </div>
   </div>
 </div>
